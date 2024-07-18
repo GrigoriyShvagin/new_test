@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="./style/style.css" />
+    <title>test_site</title>
+  </head>
+  <body>
+    <header><img src="./icons/logo.svg" /></header>
+    <section class="icons_section"></section>
+    <main>
+      <hgroup>
+        <h1>Тестовое задание</h1>
+        <h4>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat.
+        </h4>
+      </hgroup>
+      <article class="images_section">
+        <section>
+          <ul class="images_list">
+            <li><img src="/icons/mainImgs/1.png" alt="" /></li>
+            <li><img src="/icons/mainImgs/2.png" alt="" /></li>
+            <li><img src="/icons/mainImgs/3.png" alt="" /></li>
+            <li><img src="/icons/mainImgs/4.png" alt="" /></li>
+            <li><img src="/icons/mainImgs/5.png" alt="" /></li>
+            <li><img src="/icons/mainImgs/6.png" alt="" /></li>
+          </ul>
+          <div class="slider">
+            <div class="slider-list">
+              <img class="slide" src="/icons/mainImgs/1.png" alt="" />
+              <img class="slide" src="/icons/mainImgs/2.png" alt="" />
+              <img class="slide" src="/icons/mainImgs/3.png" alt="" />
+              <img class="slide" src="/icons/mainImgs/4.png" alt="" />
+              <img class="slide" src="/icons/mainImgs/5.png" alt="" />
+              <img class="slide" src="/icons/mainImgs/6.png" alt="" />
+            </div>
+            <div class="buttons_list">
+              <img
+                src="/icons/leftArrow.svg"
+                class="prev"
+                alt=""
+                srcset=""
+                onclick="minusSlides()"
+              />
+              <img
+                src="/icons/arrowRight.svg"
+                class="next"
+                alt=""
+                srcset=""
+                onclick="plusSlides()"
+              />
+            </div>
+          </div>
+        </section>
+        <aside class="sidebar_text"></aside>
+      </article>
+    </main>
+  </body>
+</html>
+
+<script>
+  const iconsSec = document.querySelector(".icons_section");
+  let iconsSecWidth = iconsSec.clientWidth;
+  const slides = document.querySelectorAll(".slide");
+  const slide = document.querySelector(".slider-track");
+
+  let slideIndex = 1;
+  showSlides(slideIndex);
+
+  let sideBarText = "Lorem ipsum dolor sit a";
+
+  addEventListener("click", (e) => {
+    if (e.target.classList == "slide") {
+      plusSlides();
+    }
+  });
+
+  function plusSlides() {
+    showSlides((slideIndex += 1));
+  }
+
+  function minusSlides() {
+    showSlides((slideIndex -= 1));
+  }
+
+  function showSlides(n) {
+    let i;
+
+    if (n > slides.length) {
+      slideIndex = 1;
+    }
+    if (n < 1) {
+      slideIndex = slides.length;
+    }
+
+    for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+    }
+
+    slides[slideIndex - 1].style.display = "block";
+  }
+
+  sideBarText.split("").forEach((elem) => {
+    const p = document.createElement("p");
+    p.innerHTML = elem;
+    document.querySelector(".sidebar_text").appendChild(p);
+  });
+
+  while (iconsSecWidth >= 34) {
+    const newIconsSecElem = document.createElement("div");
+    newIconsSecElem.innerHTML =
+      '<img class="section_image" src="./icons/icon_section.svg"/>';
+    iconsSec.appendChild(newIconsSecElem);
+    iconsSecWidth -= 34;
+  }
+</script>

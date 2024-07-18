@@ -1,0 +1,142 @@
+:root {
+  --dark: #1a1a1a;
+}
+@font-face {
+  font-family: "Montserrat";
+  src: url(/fonts/Montserrat-Medium.ttf);
+}
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Montserrat";
+}
+html {
+  background: url(../icons/bg.png) no-repeat;
+  background-size: cover;
+}
+body {
+  background: rgba(255, 255, 255, 0.5);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+header {
+  width: 83.3%;
+  max-width: 1200px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  margin-bottom: 20px;
+}
+.section_image {
+  padding: 0 16px 0 0;
+}
+.icons_section {
+  background: var(--dark);
+  overflow: hidden;
+  width: 83.3%;
+  max-width: 1200px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 40px;
+}
+.icons_section .section_image:first-child {
+  padding: 0 0 0 16px;
+}
+main {
+  width: 83.3%;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+}
+main h1 {
+  font-size: 64px;
+  display: table;
+  text-transform: uppercase;
+  font-weight: 700;
+  background: linear-gradient(90deg, #000000 0%, #4c4c4c 51.43%, #000000 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+main h4 {
+  max-width: 730px;
+  margin: 10px 0 50px 0;
+  color: var(--dark);
+  font-weight: 400;
+}
+.images_section {
+  display: flex;
+}
+.images_section .sidebar_text {
+  color: var(--dark);
+  font-size: 20px;
+  line-height: 26px;
+  font-weight: 400;
+  text-align: right;
+  width: 15px;
+}
+.images_section section {
+  width: calc(385px * 3);
+}
+.images_list {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+}
+.images_list img {
+  width: 375px;
+  height: 245px;
+  margin: 0 10px 10px 0;
+}
+.slider {
+  position: relative;
+  overflow: hidden;
+}
+.slide {
+  width: calc(80vw);
+  height: calc(50vw);
+  max-height: 500px;
+}
+.buttons_list {
+  display: flex;
+  justify-content: space-between;
+}
+.prev,
+.next {
+  transition: 0.3s ease;
+}
+.prev {
+  margin: 15px 0 15px 30px;
+}
+.prev:hover {
+  margin: 15px 0 15px 0px;
+  padding: 0 30px 0 0;
+}
+.next {
+  margin: 15px 30px 15px 0;
+}
+.next:hover {
+  margin: 15px 0 15px 0;
+  padding: 0 0 0 30px;
+}
+
+@media screen and (max-width: 900px) {
+  .images_list {
+    display: none;
+  }
+  .slider {
+    display: block;
+    position: relative;
+  }
+}
+@media screen and (min-width: 900px) {
+  .images_list {
+    display: flex;
+  }
+  .slider {
+    display: none;
+  }
+}
